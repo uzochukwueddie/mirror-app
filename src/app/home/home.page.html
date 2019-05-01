@@ -1,14 +1,36 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <div 
+    [ngClass]="{'frame__one': frameOne, 'frame__two': frameTwo, 'frame__three': frameThree}"
+    [style.height.px]="screenHeight" 
+    [style.width.px]="screenWidth">
   </div>
+
+  <ion-item lines="none">
+    <div>
+      <ion-button (click)="zoomOut()" fill="clear">
+        <ion-icon name="remove"></ion-icon>
+      </ion-button>
+      <ion-button (click)="zoomIn()" fill="clear">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+      <ion-button (click)="changeFrame()" fill="clear">
+        <ion-icon name="browsers"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-item>
+
+  <ion-item lines="none" class="range__item">
+    <ion-range
+      [(ngModel)]="setBrightness"
+      [min]="0"
+      [max]="1"
+      [step]="setBrightness"
+      (ionChange)="onChange($event)">
+      <ion-icon size="small" slot="start" name="sunny"></ion-icon>
+      <ion-icon size="small" slot="end" name="sunny"></ion-icon>
+    </ion-range>
+  </ion-item>
+
+
+
 </ion-content>

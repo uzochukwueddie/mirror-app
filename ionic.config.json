@@ -1,5 +1,7 @@
 {
   "name": "mirror-app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
